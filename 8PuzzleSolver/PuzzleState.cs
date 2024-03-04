@@ -27,7 +27,7 @@
         /// and always contains ints 0 to 8. The index is the tile's position and
         /// the value represents the number on the tile, with the value of 0 being the blank tile. 
         /// </summary>
-        
+
         /*  The puzzle's three rows are flattened to 1 dimension so that the array [1,2,3,4,5,6,7,8,0]
             would represent the tile state 
             
@@ -124,7 +124,7 @@
         /// <param name="idx1">The index of the first of the two items to swap in the Tiles array.</param>
         /// <param name="idx2">The index of the second of the two items to swap in the Tiles array.</param>
         public void SwapTiles(int idx1, int idx2) => (Tiles[idx1], Tiles[idx2]) = (Tiles[idx2], Tiles[idx1]);
-        
+
         /// <summary>
         /// Determines the number of inversions in the Tiles array, which is used to determine if the current state of the puzzle is solveable.
         /// </summary>

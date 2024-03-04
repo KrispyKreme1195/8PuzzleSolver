@@ -22,13 +22,13 @@ internal class Program
             }
             Console.WriteLine("\n");
 
-          //Based on user input, invoke the appropriate functionality from the PuzzleSolverEngine
+            //Based on user input, invoke the appropriate functionality from the PuzzleSolverEngine
             switch (userSelection)
             {
                 case 1:
                     solverEngine.Continue();
                     break;
-                case 2: 
+                case 2:
                     solverEngine.Solve();
                     break;
                 case 3:

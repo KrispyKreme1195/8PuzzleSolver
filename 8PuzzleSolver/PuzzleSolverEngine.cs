@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Serialization;
+﻿using System.Text;
 
 namespace _8PuzzleSolver
 {
@@ -33,10 +28,10 @@ namespace _8PuzzleSolver
         /// Creates a new <see cref="PuzzleSolverEngine"/> with an empty StateHistory and an initial <see cref="PuzzleState"/>
         /// which has a randomized Tiles array and is known to be solveable.
         /// </summary>
-        public PuzzleSolverEngine() 
+        public PuzzleSolverEngine()
         {
             //Make sure we start with a solveable puzzle.
-            
+
             do
             {
                 CurrentState = new PuzzleState();
@@ -47,7 +42,7 @@ namespace _8PuzzleSolver
         }
 
         //Included for convenience 
-        
+
         /// <summary>
         /// Determines if a <see cref="PuzzleState"/>'s Tiles array matches the values for the 1D representation of 
         /// a solved 8-puzzle's tiles element-wise.
@@ -68,7 +63,7 @@ namespace _8PuzzleSolver
         {
             var descendants = new List<PuzzleState>();
 
-            foreach(int index in PuzzleState.TileNeighbors[state.BlankIndex])
+            foreach (int index in PuzzleState.TileNeighbors[state.BlankIndex])
             {
                 //Build the new state with the same Tiles but increment its depth. 
                 var descendant = new PuzzleState(state);
@@ -100,7 +95,7 @@ namespace _8PuzzleSolver
 
             var descendants = GetDescendantStates(CurrentState)
                 .Where(x => x.IsSolveable && !StateHistory.Any(y => y.Tiles.SequenceEqual(x.Tiles)))
-                .OrderBy(x => x.ManhattanDistance+ CurrentState.Depth)
+                .OrderBy(x => x.ManhattanDistance + CurrentState.Depth)
                 .ToList();
 
             //If we don't find any valid descendants, throw an exception.
@@ -165,7 +160,7 @@ namespace _8PuzzleSolver
             {
                 header = CurrentState.Depth == 0 ? "Initial State:\n\n" : "CurrentState:\n\n";
             }
-            
+
             var builder = new StringBuilder(header);
 
             builder.AppendLine($"\t{CurrentState.Tiles[0]}\t{CurrentState.Tiles[1]}\t{CurrentState.Tiles[2]}");
@@ -173,7 +168,7 @@ namespace _8PuzzleSolver
             builder.AppendLine($"\t{CurrentState.Tiles[6]}\t{CurrentState.Tiles[7]}\t{CurrentState.Tiles[8]}\n");
 
             builder.AppendLine($"Current Depth: {CurrentState.Depth}\t\tManhattan Distance: {CurrentState.ManhattanDistance}\n");
-            
+
             Console.WriteLine(builder.ToString());
         }
     }
