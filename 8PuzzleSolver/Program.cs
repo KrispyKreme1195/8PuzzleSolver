@@ -18,7 +18,7 @@ internal class Program
             if (string.IsNullOrWhiteSpace(userSelectString) ||!int.TryParse(userSelectString, out int userSelection) 
                 || userSelection < 1 || userSelection > 4)
             {
-                Console.WriteLine("Invalid input entered. Please select one of the provided options.\n");
+                Console.WriteLine("\nInvalid input entered. Please select one of the provided options.\n");
                 continue;
             }
 

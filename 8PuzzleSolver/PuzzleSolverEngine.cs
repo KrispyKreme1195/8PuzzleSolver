@@ -89,7 +89,7 @@ namespace _8PuzzleSolver
 
             if (DoneSolving)
             {
-                Console.WriteLine("The current puzzle is already solved. Please reset the puzzle and solve another or exit the program");
+                Console.WriteLine("\nThe current puzzle is already solved. Please reset the puzzle and solve another or exit the program\n");
                 return;
             }
 
@@ -98,9 +98,14 @@ namespace _8PuzzleSolver
                 .OrderBy(x => x.ManhattanDistance + CurrentState.Depth)
                 .ToList();
 
-            //If we don't find any valid descendants, throw an exception.
+            //If we don't find any valid descendants, step back and try again.
             if (descendants.Count == 0)
-                throw new("No valid derived states found for the current state of the puzzle.");
+            {
+                Console.WriteLine("No valid moves found, reverting to previous state and trying another approach.");
+                //Go back to the state before the last one in the state history (the current state)
+                CurrentState = StateHistory[^2];
+                return;
+            }
 
             //Check if we've found a solution.
             if (descendants.Any(IsSolved))
@@ -122,10 +127,11 @@ namespace _8PuzzleSolver
         /// </summary>
         public void Solve()
         {
-            while (!DoneSolving)
+            do 
             {
                 Continue();
             }
+            while (!DoneSolving);
         }
 
         /// <summary>
@@ -154,11 +160,11 @@ namespace _8PuzzleSolver
             string header;
             if (DoneSolving)
             {
-                header = "Puzzle solved!\n\n";
+                header = "\nPuzzle solved!\n\n";
             }
             else
             {
-                header = CurrentState.Depth == 1 ? "Initial State:\n\n" : "CurrentState:\n\n";
+                header = CurrentState.Depth == 1 ? "Initial State:\n\n" : "\nCurrent State:\n\n";
             }
 
             var builder = new StringBuilder(header);
