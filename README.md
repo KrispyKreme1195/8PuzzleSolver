@@ -2,7 +2,7 @@
 
 ## Description
 
-The 8PuzzleSolver Project is designed as a learning exercise to implement a simple C# console application to solve the classic 8-puzzle problem. It features a PuzzleSolverEngine that generates, displays, and solves a randomized (but solvable) 8-puzzle. The project includes three main files: `Program.cs`, which serves as the entry point and user interaction layer; `PuzzleSolverEngine.cs`, which contains the logic to solve the puzzle; and `PuzzleState.cs`, managing individual puzzle states including tile positions and the goal state. The decision logic is an implementation of the A* search algorithm where the current arrangement of the tiles of the 8 puzzle act as the nodes of a graph, and the Manhattan Distance hueristic is applied to determine the next node to expand and navigate to.
+The 8PuzzleSolver Project is designed as a learning exercise to implement a simple C# console application to solve the classic 8-puzzle problem. It features a PuzzleSolverEngine that generates, displays, and solves a randomized (but solvable) 8-puzzle. The project includes three main files: `Program.cs`, which serves as the entry point and user interaction layer; `PuzzleSolverEngine.cs`, which contains the logic to solve the puzzle and defines the end goal state; and `PuzzleState.cs`, managing individual puzzle states including information about the current state of the Puzzle such as tile positions and search depth. The decision logic is an implementation of the A* search algorithm where the current arrangement of the tiles of the 8 puzzle act as the nodes of a graph, and the Manhattan Distance hueristic is applied to determine the next node to expand and navigate to.
 
 ## Features
 
