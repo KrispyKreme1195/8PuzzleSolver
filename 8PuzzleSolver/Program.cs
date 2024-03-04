@@ -15,12 +15,12 @@ internal class Program
             string? userSelectString = Console.ReadLine();
 
             //If an invalid value is provided, inform the user that it is invalid and start back at prompting them.
-            if (!int.TryParse(userSelectString, out int userSelection) || userSelection < 1 || userSelection > 4)
+            if (string.IsNullOrWhiteSpace(userSelectString) ||!int.TryParse(userSelectString, out int userSelection) 
+                || userSelection < 1 || userSelection > 4)
             {
-                Console.WriteLine("Invalid input entered. Please select one of the provided options.");
+                Console.WriteLine("Invalid input entered. Please select one of the provided options.\n");
                 continue;
             }
-            Console.WriteLine("\n");
 
             //Based on user input, invoke the appropriate functionality from the PuzzleSolverEngine
             switch (userSelection)
@@ -41,6 +41,5 @@ internal class Program
                     return;
             }
         }
-
     }
 }

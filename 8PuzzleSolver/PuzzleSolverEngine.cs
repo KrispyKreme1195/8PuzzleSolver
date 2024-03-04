@@ -158,7 +158,7 @@ namespace _8PuzzleSolver
             }
             else
             {
-                header = CurrentState.Depth == 0 ? "Initial State:\n\n" : "CurrentState:\n\n";
+                header = CurrentState.Depth == 1 ? "Initial State:\n\n" : "CurrentState:\n\n";
             }
 
             var builder = new StringBuilder(header);
