@@ -23,4 +23,4 @@ The 8PuzzleSolver Project is designed as a learning exercise to implement a simp
 
 ## Contributing
 
-Contributions are welcome! Please fork the repository and submit a pull request with your proposed changes or improvements. Otherwise, feel free to discuss new ideas and ask questions aout the project, and definitely do not hesitate to reach out if you identify a mistake in the implementation or documentation, since the goal of this repository is to serve as a helpful learning reference for others.
+Contributions are welcome! Please fork the repository and submit a pull request with your proposed changes or improvements. Otherwise, feel free to discuss new ideas and ask questions about the project, and definitely do not hesitate to reach out if you identify a mistake in the implementation or documentation, since the goal of this repository is to serve as a helpful learning reference for others.
